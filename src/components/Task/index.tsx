@@ -1,13 +1,23 @@
 import CheckBox from 'expo-checkbox';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function Task() {
+export default function Task({ title, category, time, state }) {
+
+    let renderedTitle = title
+    if (title && title.length > 10) {
+        renderedTitle = title.substring(0, 10) + "..."
+    }
+
+    let renderedCategory = category
+    if (category && category.length > 18) {
+        renderedCategory = category.substring(0, 18) + "..."
+    }
 
     const [isSelected, setSelection] = useState(false);
 
     return (
-        <View style={
+        <TouchableOpacity style={
             styles.container}>
             <View style={styles.madeView}>
                 <CheckBox
@@ -18,21 +28,21 @@ export default function Task() {
             </View>
             <View style={styles.mainTextView}>
                 <Text style={styles.taskTitle}>
-                    Title title
+                    {renderedTitle}
                 </Text>
                 <Text style={styles.taskInfo}>
-                    Category category
+                    {renderedCategory}
                 </Text>
             </View>
             <View style={styles.infosView}>
                 <Text style={styles.taskInfo}>
-                    at 11 PM
+                    {time}
                 </Text>
                 <Text style={styles.taskInfo}>
-                    in process
+                    {state}
                 </Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
@@ -74,7 +84,7 @@ const styles = StyleSheet.create({
 
     taskTitle: {
         color: '#82A1E1',
-        fontSize: 32,
+        fontSize: 28,
         marginLeft: 10,
     },
 

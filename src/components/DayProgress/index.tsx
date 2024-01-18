@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function DayProgress() {
+export default function DayProgress({ weekDay, dayNumber, monthNumber }) {
 
     return (
         <View style={styles.container}>
@@ -15,8 +15,10 @@ export default function DayProgress() {
                 </View>
                 <View style={styles.dateInfo}>
                     <Text style={styles.dateInfoText}>
-                        SAT
-                        05/12
+                        {weekDay}
+                    </Text>
+                    <Text style={styles.dateInfoText}>
+                        {dayNumber}/{monthNumber}
                     </Text>
                 </View>
             </View>

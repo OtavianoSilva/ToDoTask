@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import DateSelector from '../../components/DateSelector';
 import DayProgress from '../../components/DayProgress';
+import DateSelector from '../../components/DaySelector';
 import SearchBar from '../../components/SearchBar';
 import Task from '../../components/Task';
 

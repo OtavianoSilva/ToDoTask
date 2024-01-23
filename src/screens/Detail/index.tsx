@@ -1,11 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { useContext, useState } from "react";
-import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { TaskContext } from "../../context/TaskContext";
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import DateManagerComponent from '../../components/DateManagerComponent';
 import { TaskProps } from "../../screens/Home";
 
 type RootStackParamList = {
@@ -16,31 +14,8 @@ type Props = NativeStackScreenProps<RootStackParamList>;
 
 export default function Detail() {
 
-  const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState('date');
-  const [show, setShow] = useState(false);
-  const [text, setText] = useState('Empty');
 
   const navigation = useNavigation<Props['navigation']>();
-
-  const { task } = useContext(TaskContext);
-
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShow(Platform.OS === 'ios');
-    setDate(currentDate);
-
-    let tempDate = new Date(currentDate);
-    let fDate = tempDate.getDate() + "/" + (tempDate.getMonth() + 1) + "/" + tempDate.getFullYear()
-    let fTime = "Hours: " + tempDate.getHours() + " | Minutes: " + tempDate.getMinutes()
-    setText(fDate + "\n" + fTime)
-    console.log(fDate + "\n" + fTime)
-  }
-
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  }
 
   return (
     <View style={styles.container}>
@@ -54,35 +29,11 @@ export default function Detail() {
 
         </TextInput>
 
-        <Text style={styles.title}>Date set:</Text>
-        <View style={styles.dateView}>
-          <TouchableOpacity style={styles.setDateButton}
-            onPress={() => showMode('date')}>
-            <Text style={{ fontSize: 20 }}>Set Date: </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.setDateButton}
-            onPress={() => showMode('time')}>
-            <Text style={{ fontSize: 20 }}>Set Time: </Text>
-          </TouchableOpacity>
-        </View>
+        <DateManagerComponent />
 
         <Text style={styles.title}>Category:</Text>
 
       </View>
-
-      <Text>
-        {show && (
-          <DateTimePicker
-            testID='DateTimePicker'
-            value={date}
-            mode={mode}
-            is24Hour={true}
-            display='default'
-            onChange={onChange}
-          />
-        )};
-      </Text>
 
       <StatusBar style="auto" />
     </View>
@@ -134,24 +85,6 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-
-  dateView: {
-    alignItems: "center",
-    justifyContent: 'center',
-    flexDirection: 'row'
-  },
-
-  setDateButton: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    width: 140,
-    height: 60,
-    margin: 10,
-    borderRadius: 18,
-    borderWidth: 2,
   },
 
 });

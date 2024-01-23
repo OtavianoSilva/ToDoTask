@@ -1,15 +1,17 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, TextInput, View } from 'react-native';
 
-export default function SearchBar() {
+export default function SearchBar({ ...others }: TaskProps) {
+
+    const navigation = useNavigation<Props['navigation']>();
 
     return (
         <View style={styles.container}>
             <TextInput style={styles.searchBarView} placeholder='Find a Task'>
             </TextInput>
-            <TouchableOpacity>
-                <Ionicons name="create" size={24} color="black" />
-            </TouchableOpacity>
+            <Ionicons name="create" size={24} color="black"
+                onPress={() => navigation.navigate('Detail')} />
         </View>
     )
 };

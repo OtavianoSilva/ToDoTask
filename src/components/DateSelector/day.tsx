@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
-export default function Day({ weekDay, dayNumber, main }) {
+export default function Day({ weekDay, dayNumber, main = false }) {
 
     let BG = "#848484"
 

@@ -1,8 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import CheckBox from 'expo-checkbox';
-import React, { useState } from 'react';
+import { useContext, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function Task({ title, category, time, state }) {
+import { TaskContext } from "../../context/TaskContext";
+
+type RootStackParamList = {
+    Home: undefined;
+    Detail: TaskProps;
+};
+
+type Props = NativeStackScreenProps<RootStackParamList>;
+
+export default function Task({ id, title, category, time, state, ...others }: TaskProps) {
 
     let renderedTitle = title
     if (title && title.length > 10) {
@@ -15,10 +26,22 @@ export default function Task({ title, category, time, state }) {
     }
 
     const [isSelected, setSelection] = useState(false);
+    const [task, setTask] = useState<TaskProps>({ id, title, state });
+    const { selectTask } = useContext(TaskContext);
+
+    const navigation = useNavigation<Props['navigation']>();
+
+    function handlePress() {
+        selectTask(task);
+        navigation.navigate('Detail', task);
+    }
+
 
     return (
+
         <TouchableOpacity style={
-            styles.container}>
+            styles.container}
+            onPress={() => handlePress()}>
             <View style={styles.madeView}>
                 <CheckBox
                     style={!isSelected ? styles.checkbox : styles.checkboxSelected}

@@ -1,6 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { TextInput, View } from 'react-native';
+import { styles } from './styles';
 
 export default function SearchBar({ ...others }: TaskProps) {
 
@@ -15,26 +16,3 @@ export default function SearchBar({ ...others }: TaskProps) {
         </View>
     )
 };
-
-const styles = StyleSheet.create({
-
-    container: {
-        marginTop: 15,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: 16,
-
-        width: 360,
-        height: 60,
-        borderRadius: 18,
-        borderWidth: 2,
-    },
-
-    searchBarView: {
-        width: 300,
-        fontSize: 22,
-    },
-}
-);

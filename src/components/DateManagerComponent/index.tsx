@@ -1,6 +1,7 @@
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useState } from "react";
-import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Platform, Text, TouchableOpacity, View } from 'react-native';
+import { styles } from "./styles";
 
 
 export default function DateManagerComponent({ }) {
@@ -58,33 +59,3 @@ export default function DateManagerComponent({ }) {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    title: {
-        fontSize: 32,
-    },
-
-    dateView: {
-        alignItems: "center",
-        justifyContent: 'center',
-        flexDirection: 'column'
-    },
-
-    setDateButton: {
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        width: 140,
-        height: 60,
-        margin: 10,
-        borderRadius: 18,
-        borderWidth: 2,
-    },
-
-    buttonView: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: "row"
-    },
-});

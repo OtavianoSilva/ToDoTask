@@ -1,5 +1,5 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
+import { Text, TouchableOpacity, View } from 'react-native';
+import { styles } from './styles';
 
 export default function Day({ weekDay, dayNumber, main = false }) {
 
@@ -23,25 +23,3 @@ export default function Day({ weekDay, dayNumber, main = false }) {
         </TouchableOpacity>
     )
 };
-
-const styles = StyleSheet.create({
-    container: {
-        width: 68,
-        height: 68,
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        borderRadius: 30,
-    },
-
-    inside: {
-        backgroundColor: 'white',
-        width: 30,
-        height: 30,
-        borderRadius: 999,
-
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
-})
-

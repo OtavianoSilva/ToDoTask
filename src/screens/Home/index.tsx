@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import DayProgress from '../../components/DayProgress';
 import DateSelector from '../../components/DaySelector';
 import SearchBar from '../../components/SearchBar';
 import Task from '../../components/Task';
+import { styles } from './styles';
 
 export default function Home() {
   return (
@@ -28,17 +29,3 @@ export default function Home() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 25,
-    flex: 1,
-    backgroundColor: '#fff',
-
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  scrollView: {
-    backgroundColor: '#fff',
-    marginLeft: 10,
-  },
-});

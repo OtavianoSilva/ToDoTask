@@ -10,6 +10,8 @@ export default function DateManagerComponent({ }) {
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
     const [text, setText] = useState('Empty');
+    const [formattedDate, setFormattedDate] = useState(Boolean || String);
+    const [formattedTime, setFormattedTime] = useState(Boolean || String);
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
@@ -18,8 +20,10 @@ export default function DateManagerComponent({ }) {
 
         let tempDate = new Date(currentDate);
         let fDate = tempDate.getDate() + "/" + (tempDate.getMonth() + 1) + "/" + tempDate.getFullYear()
-        let fTime = "Hours: " + tempDate.getHours() + " | Minutes: " + tempDate.getMinutes()
+        let fTime = "Hours: " + tempDate.getHours() + " Minutes: " + tempDate.getMinutes()
         setText(fDate + "\n" + fTime)
+        setFormattedDate(fDate);
+        setFormattedTime(fTime);
         console.log(fDate + "\n" + fTime)
     }
 
@@ -34,12 +38,12 @@ export default function DateManagerComponent({ }) {
             <View style={styles.buttonView}>
                 <TouchableOpacity style={styles.setDateButton}
                     onPress={() => showMode('date')}>
-                    <Text style={{ fontSize: 20 }}>Set Date: </Text>
+                    <Text style={{ fontSize: 20 }}>{!formattedDate ? "Set date" : formattedDate}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.setDateButton}
                     onPress={() => showMode('time')}>
-                    <Text style={{ fontSize: 20 }}>Set Time: </Text>
+                    <Text style={{ fontSize: 20 }}>{!formattedTime ? "Set time" : formattedTime}</Text>
                 </TouchableOpacity>
             </View>
 

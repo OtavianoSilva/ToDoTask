@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 
 export default function CategoryButton({ title, color, isCreate = false }) {
@@ -12,8 +12,8 @@ export default function CategoryButton({ title, color, isCreate = false }) {
     }
 
     return (
-        <View style={[styles.container, { backgroundColor: BG }]}>
+        <TouchableOpacity style={[styles.container, { backgroundColor: BG }]}>
             <Text>{mainText}</Text>
-        </View>
+        </TouchableOpacity>
     )
 };

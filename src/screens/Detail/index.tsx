@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View } from 'react-native';
-import Category from '../../components/Category';
+import CategoryDropdown from '../../components/CategoryDropdown';
 import DateManagerComponent from '../../components/DateManagerComponent';
 import { TaskProps } from "../../screens/Home";
 import { styles } from './styles';
@@ -32,7 +32,7 @@ export default function Detail() {
 
         <DateManagerComponent />
 
-        <Category />
+        <CategoryDropdown />
 
         <View style={styles.submitButton}>
           <Text style={styles.title}>Save</Text>

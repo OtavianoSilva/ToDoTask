@@ -30,7 +30,7 @@ interface TaskProviderProps {
 }
 
 function TaskProvider({ children }: TaskProviderProps) {
-    const [task, setTask] = useState<TaskProps>({ id: 0, title: '', done: false });
+    const [task, setTask] = useState<TaskProps>({ id: 0, title: '', state: false, day: 0, month: 0, year: 0, hour: 0, minutes: 0, category: '' });
 
     function selectTask(task: TaskProps) {
         setTask(task);

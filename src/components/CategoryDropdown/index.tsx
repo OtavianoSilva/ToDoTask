@@ -2,6 +2,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
+import CategoryModal from '../CategoryModal';
 import { styles } from "./styles";
 
 const data = [
@@ -22,15 +23,18 @@ export default function CategoryDropdown() {
                 <Text style={[styles.label, isFocus && { color: 'blue' }]}>
                     Select Category:
                 </Text>
-            );
+            )
         }
         return null;
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Category: </Text>
-            <View style={styles.box}>
+            <View style={styles.topView}>
+                <Text style={styles.title}>Category: </Text>
+                <CategoryModal />
+            </View>
+            <View style={styles.bottomView}>
                 {renderLabel()}
                 <Dropdown
                     style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}

@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 
-import { TaskContext } from "../../context/TaskContext";
+import { TaskContext } from "../../contexts/TaskContext";
 
 type RootStackParamList = {
     Home: undefined;

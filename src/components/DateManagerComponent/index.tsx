@@ -57,7 +57,7 @@ export default function DateManagerComponent({ }) {
                         display='default'
                         onChange={onChange}
                     />
-                )};
+                )}
             </Text>
 
         </View>

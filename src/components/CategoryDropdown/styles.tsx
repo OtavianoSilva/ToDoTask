@@ -4,12 +4,24 @@ export const styles = StyleSheet.create({
 
     container: {
         width: 380,
-        height: 120,
+        height: 150,
         alignItems: 'center',
         justifyContent: 'space-between',
+        marginBottom: 40,
     },
 
-    box: {
+    topView: {
+        width: 360,
+        height: 80,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        padding: 16,
+        paddingHorizontal: 60,
+    },
+
+    bottomView: {
         width: 360,
         height: 60,
         backgroundColor: 'white',
